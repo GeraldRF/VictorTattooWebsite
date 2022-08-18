@@ -1,7 +1,7 @@
 <template>
-    <Carousel :items-to-show="xl ? 4 : lg ? 3 : md ? 2 : 1">
+    <Carousel :items-to-show="xl ? 4 : lg ? 3 : md ? 2 : 1" :autoplay="3000" :wrap-around="true">
         <Slide v-for="(value, index) in data" :key="'tattoo_' + index">
-            <div class="relative w-60 h-60 bg-center bg-cover bg-no-repeat overflow-hidden rounded-3xl group"
+            <div class="relative w-60 h-60 bg-center bg-cover bg-no-repeat overflow-hidden rounded-3xl group cursor-pointer"
                 :style="{ backgroundImage: `url(${value.image})` }">
                 <div
                     class="hidden group-hover:flex flex-col items-start justify-center absolute top-0 left-0 w-full h-full p-4 bg-black bg-opacity-80">
@@ -15,7 +15,7 @@
 
         <template #addons>
             <Navigation class="text-white" />
-            <Pagination />
+            <Pagination class="mt-4" />
         </template>
     </Carousel>
 </template>

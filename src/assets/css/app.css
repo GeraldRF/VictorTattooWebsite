@@ -8,12 +8,6 @@ h1 {
     text-shadow: 0 0 10px rgb(0, 0, 0);
 }
 
-.home-element h2::before {
-  content: "\2023";
-  font-size: larger;
-  margin-right: 4px;
-}
-
 .showMenu {
     animation: show 0.4s forwards;
   }
