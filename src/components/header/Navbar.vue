@@ -1,7 +1,7 @@
 <template>
   <div class="w-full h-16">
     <div class="h-16 w-full"></div>
-    <nav class="p-2 flex w-full h-16 items-center justify-between md:justify-start text-white bg-black bg-opacity-90 shadow-2xl z-10 fixed top-0">
+    <nav class="p-2 flex w-full h-16 items-center justify-between md:justify-start text-white bg-black bg-opacity-90 shadow-2xl z-50 fixed top-0">
       <div class="p-2 text-3xl text-white">
         <router-link to="/" class="flex items-center">ElBatoTattoo</router-link>
       </div>

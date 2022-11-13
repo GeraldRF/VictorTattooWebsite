@@ -3,42 +3,13 @@
     <Header></Header>
     <div class="flex flex-col gap-4 mt-20">
 
-      <SectionCard name="Catalogo" :data="tattos" router-link="/catalogue"></SectionCard>
+      <MainSection :data="tattos"></MainSection>
 
-      <SectionCard name="Promociones" :data="tattos" router-link="/catalogue"></SectionCard>
+      <SectionCard name="Catalogo" :data="tattos" link="/catalogue"></SectionCard>
 
-      <SectionCard name="Trabajos" :data="tattos" router-link="/catalogue"></SectionCard>
+      <SectionCard name="Promociones" :data="tattos" link="/promotions"></SectionCard>
 
-      <div>
-        <div class="flex items-center justify-center gap-3 px-4 lg:px-8">
-          <div class="h-px bg-white lg:w-5 grow shrink lg:grow-0 lg:shrink-0"></div>
-          <h2 class="flex justify-center items-center  text-2xl grow-0 shrink-0">Promociones</h2>
-          <div class="h-px bg-white grow shrink"></div>
-        </div>
-        <div class="mx-auto py-8 w-11/12 relative">
-          <CarouselCard :data="tattos"></CarouselCard>
-        </div>
-        <div class="flex justify-end px-3 lg:px-8 mb-16">
-          <router-link to="/catalogue" class="mr-3 px-3 py-1 border-2 rounded-3xl hover:text-gray-300">Todas las promos
-          </router-link>
-        </div>
-      </div>
-
-      <div>
-        <div class="flex items-center justify-center gap-0 px-4 lg:px-8">
-          <div class="h-px bg-white lg:w-5 grow shrink lg:grow-0 lg:shrink-0"></div>
-          <h2 class="flex justify-center items-center px-4 text-2xl grow-0 shrink-0 border-x-2">Trabajos
-          </h2>
-          <div class="h-px bg-white grow shrink"></div>
-        </div>
-        <div class="mx-auto py-8 w-11/12 relative">
-          <CarouselCard :data="tattos"></CarouselCard>
-        </div>
-        <div class="flex justify-end px-3 lg:px-8 mb-16">
-          <router-link to="/catalogue" class="mr-3 px-3 py-1 border-2 rounded-3xl hover:text-gray-300">Todos mis
-            trabajos</router-link>
-        </div>
-      </div>
+      <SectionCard name="Trabajos" :data="tattos" link="/works"></SectionCard>
 
     </div>
 
@@ -57,7 +28,7 @@
 
       <div class="relative flex flex-col items-center gap-8 pb-32 mt-6 bg-transparent lg:w-10/12 mx-auto z-10">
         <div class="text-2xl w-full">Contactame: </div>
-
+        <ContactCard></ContactCard>
       </div>
 
       <div class="absolute right-0 top-0 w-full h-56 bg-gradient-to-b from-black to-transparent"></div>
@@ -71,6 +42,7 @@
 import Header from "@/components/header/Header.vue";
 import CarouselCard from "@/components/CarouselCard.vue";
 import SectionCard from "@/components/SectionCard.vue";
+import MainSection from "@/components/MainSection.vue";
 
 import { ArrowCircleLeftIcon, ArrowCircleRightIcon } from '@heroicons/vue/solid'
 import { ref } from 'vue';
@@ -78,6 +50,7 @@ import { ref } from 'vue';
 import availableTattos from '@/components/trash/catalogue.js'
 
 import useBreakpoints from "@/composables/useBreakpoints";
+import ContactCard from '@/components/ContactCard.vue';
 
 
 
@@ -88,7 +61,9 @@ export default {
     ArrowCircleLeftIcon,
     ArrowCircleRightIcon,
     CarouselCard,
-    SectionCard
+    SectionCard,
+    MainSection,
+    ContactCard
 },
   setup() {
     const tattos = ref(availableTattos);

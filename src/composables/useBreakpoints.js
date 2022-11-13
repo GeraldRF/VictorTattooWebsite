@@ -13,20 +13,16 @@ export default function useBreakpoints() {
     });
 
     const sm = computed(() => {
-        if (width.value >= 640 && width.value < 768) return true;
-        else return false;
+        return width.value >= 640 && width.value < 768
     });
     const md = computed(() => {
-        if (width.value >= 768 && width.value < 1024) return true;
-        else return false;
+        return width.value >= 768 && width.value < 1024
     });
     const lg = computed(() => {
-        if (width.value >= 1024 && width.value < 1280) return true;
-        else return false;
+        return width.value >= 1024 && width.value < 1280
     });
     const xl = computed(() => {
-        if (width.value >= 1280) return true;
-        else return false;
+        return width.value >= 1280;
     });
 
     return {

@@ -23,7 +23,4 @@ export default [
     {
         image: '/images/temp/8.webp',
     },
-    {
-        image: '/images/temp/9.webp',
-    },
 ]
