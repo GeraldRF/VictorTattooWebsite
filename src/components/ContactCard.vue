@@ -4,15 +4,15 @@
             @submit="onSubmit">
             <div class="w-full font-bold text-xl">Dejame un mensaje</div>
             <div class="flex flex-col gap-5 justify-between w-full">
-                <div class="flex gap-5 w-full">
-                    <div class="flex flex-col gap-2 w-1/2">
+                <div class="flex flex-col md:flex-row gap-5 w-full">
+                    <div class="flex flex-col gap-2 w-full md:w-1/2">
                         <div class="font-normal">Nombre:</div>
                         <div>
                             <input class="w-full text-gray-500 outline-none" type="text"
                                 placeholder="Ingresa tu nombre">
                         </div>
                     </div>
-                    <div class="flex flex-col gap-2 w-1/2">
+                    <div class="flex flex-col gap-2 w-full md:w-1/2">
                         <div class="font-normal">Número telefónico:</div>
                         <div>
                             <input class="w-full text-gray-500 outline-none" type="text"
@@ -20,15 +20,15 @@
                         </div>
                     </div>
                 </div>
-                <div class="flex gap-5 w-full">
-                    <div class="flex flex-col gap-2 w-1/2">
+                <div class="flex flex-col md:flex-row gap-5 w-full">
+                    <div class="flex flex-col gap-2 w-full md:w-1/2">
                         <div class="font-normal">Mensaje:</div>
                         <div>
                             <textarea rows="3" class="w-full text-gray-500 outline-none resize-none"
                                 placeholder="Cual es tu mensaje?"></textarea>
                         </div>
                     </div>
-                    <div class="flex flex-col gap-3 w-1/2">
+                    <div class="flex flex-col gap-3 w-full md:w-1/2">
                         <div class="font-normal">¿Quieres mostrarme una imagen?</div>
 
                         <div class="relative">
@@ -61,11 +61,11 @@
         </form>
         <div class="flex flex-col items-center justify-center gap-5 w-10/12 mx-auto md:w-3/12">
             <div class="text-center text-xl">Otras formas de contactarme</div>
-            <div class="flex flex-col gap-4">
-                <div class="flex flex-col items-center justify-center cursor-pointer hover:text-blue-400"><i class="text-3xl fab fa-whatsapp-square"></i> Whatsapp</div>
-                <div class="flex flex-col items-center justify-center cursor-pointer hover:text-blue-400"><i class="text-3xl fab fa-facebook-square"></i> Facebook</div>
-                <div class="flex flex-col items-center justify-center cursor-pointer hover:text-blue-400"><i class="text-3xl fab fa-instagram-square"></i> Instagram</div>
-                <div class="flex flex-col items-center justify-center cursor-pointer hover:text-blue-400"><i class="text-3xl fas fa-share-alt-square"></i> Comparte este sitio</div>
+            <div class="flex flex-col sm:flex-row md:flex-col gap-4">
+                <div class="flex flex-col lg:flex-row gap-3 items-center justify-center lg:justify-start cursor-pointer hover:text-blue-400"><i class="text-3xl fab fa-whatsapp-square"></i> Whatsapp</div>
+                <div class="flex flex-col lg:flex-row gap-3 items-center justify-center lg:justify-start cursor-pointer hover:text-blue-400"><i class="text-3xl fab fa-facebook-square"></i> Facebook</div>
+                <div class="flex flex-col lg:flex-row gap-3 items-center justify-center lg:justify-start cursor-pointer hover:text-blue-400"><i class="text-3xl fab fa-instagram-square"></i> Instagram</div>
+                <div class="flex flex-col lg:flex-row gap-3 items-center justify-center lg:justify-start cursor-pointer hover:text-blue-400"><i class="text-3xl fas fa-share-alt-square"></i> Comparte este sitio</div>
             </div>
         </div>
     </div>
@@ -118,16 +118,16 @@ export default {
                         draggable.value.classList.add('border-green-200');
                         uploadedImg.value = true;
                     } else {
-                        uploader_img.value.files.length = 0;
+                        uploader_img.value.value = '';
 
                         filesInputErrorMessage.value = 'Tamaño maximo permitido: 2 MB.'
                     }
                 } else {
-                    uploader_img.value.files.length = 0;
+                    uploader_img.value.value = '';
                     filesInputErrorMessage.value = 'Solo puedes subir formato imagen.'
                 }
             } else {
-                uploader_img.value.files.length = 0;
+                uploader_img.value.value = '';
                 filesInputErrorMessage.value = 'Solo puedes subir una imagen.'
             }
 

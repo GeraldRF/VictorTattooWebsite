@@ -3,7 +3,7 @@
     <div :style="{backgroundImage: `url(${this.solo_url})`}"
       class="flex flex-col justify-end mx-auto h-screen w-full sm:gap-20 absolute top-0 z-0 bg-center bg-cover bg-no-repeat">
       <div class="flex justify-center items-center text-center text-7xl w-full text-white">
-        <h1>The best quality in tattoos</h1>
+        <h1>Calidad en mi trabajo, el mejor arte</h1>
       </div>
 
       <MainSection :data="tattos"></MainSection>
