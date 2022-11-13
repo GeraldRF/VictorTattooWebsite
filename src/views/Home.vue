@@ -3,13 +3,11 @@
     <Header></Header>
     <div class="flex flex-col gap-4 mt-20">
 
-      <MainSection :data="tattos"></MainSection>
+      <SectionCard icon="fas fa-book-open" name="Catalogo" :data="tattos" link="/catalogue"></SectionCard>
 
-      <SectionCard name="Catalogo" :data="tattos" link="/catalogue"></SectionCard>
+      <SectionCard icon="fas fa-gifts" name="Promociones" :data="tattos" link="/promotions"></SectionCard>
 
-      <SectionCard name="Promociones" :data="tattos" link="/promotions"></SectionCard>
-
-      <SectionCard name="Trabajos" :data="tattos" link="/works"></SectionCard>
+      <SectionCard icon="fas fa-pencil-alt" name="Trabajos" :data="tattos" link="/works"></SectionCard>
 
     </div>
 
@@ -42,7 +40,6 @@
 import Header from "@/components/header/Header.vue";
 import CarouselCard from "@/components/CarouselCard.vue";
 import SectionCard from "@/components/SectionCard.vue";
-import MainSection from "@/components/MainSection.vue";
 
 import { ArrowCircleLeftIcon, ArrowCircleRightIcon } from '@heroicons/vue/solid'
 import { ref } from 'vue';
@@ -62,7 +59,6 @@ export default {
     ArrowCircleRightIcon,
     CarouselCard,
     SectionCard,
-    MainSection,
     ContactCard
 },
   setup() {

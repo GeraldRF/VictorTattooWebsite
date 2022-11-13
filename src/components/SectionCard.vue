@@ -2,7 +2,7 @@
     <div class="w-full px-3 lg:px-8">
         <div class="flex items-center justify-center gap-0">
             <div class="h-[0.1px] bg-gray-700 lg:w-5 grow shrink lg:grow-0 lg:shrink-0"></div>
-            <h2 class="flex justify-center items-center px-4 text-2xl grow-0 shrink-0 border-[1px] border-gray-700 rounded-xl shadow-md shadow-gray-900">{{name}}
+            <h2 class="flex justify-center items-center gap-2 px-4 text-2xl grow-0 shrink-0 border-gray-700 rounded-xl"> <i class="text-lg text-gray-400" :class="icon"></i>{{name}}
             </h2>
             <div class="h-[0.1px] bg-gray-700 grow shrink"></div>
         </div>
@@ -35,6 +35,10 @@ export default {
         link: {
             type: String,
             required: true
+        },
+        icon: {
+            type: String,
+            required: true,
         }
     },
     components: {

@@ -1,5 +1,5 @@
 <template>
-    <Carousel :items-to-show="xl ? 4 : lg ? 3 : md ? 2 : 1" :autoplay="3000" :wrap-around="true">
+    <Carousel class="!bg-transparent" :items-to-show="xl ? 4 : lg ? 3 : md ? 2 : 1" :autoplay="3000" :wrap-around="true">
         <Slide v-for="(value, index) in data" :key="'tattoo_' + index">
             <div class="relative w-60 h-60 bg-center bg-cover bg-no-repeat overflow-hidden rounded-xl group"
                 :style="{ backgroundImage: `url(${value.image})` }">
