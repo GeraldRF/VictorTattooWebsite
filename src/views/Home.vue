@@ -1,5 +1,8 @@
 <template>
   <div class="text-white">
+
+    <img alt="">
+
     <Header></Header>
     <div class="flex flex-col gap-4 mt-20">
 
@@ -42,15 +45,15 @@ import CarouselCard from "@/components/CarouselCard.vue";
 import SectionCard from "@/components/SectionCard.vue";
 
 import { ArrowCircleLeftIcon, ArrowCircleRightIcon } from '@heroicons/vue/solid'
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 
 import availableTattos from '@/components/trash/catalogue.js'
 
 import useBreakpoints from "@/composables/useBreakpoints";
 import ContactCard from '@/components/ContactCard.vue';
+import firebase from '@/initializeFirebase'
 
-
-
+import { useAppDataStore } from '@/stores/appdata.store.js'
 
 export default {
   components: {
@@ -65,6 +68,22 @@ export default {
     const tattos = ref(availableTattos);
 
     const { sm, md, lg, xl } = useBreakpoints();
+
+    const appDataStore = useAppDataStore();
+
+    const getAppData = async () => {
+      const snapshot = await firebase.db.collection('app_data').get();
+      return snapshot.docs.map(doc => doc.data());
+    }
+
+
+    onMounted(() => {
+     console.log(getAppData()) 
+
+     firebase.storage.getDownloadURL('WhatsApp_Image_2022-07-21_at_12.08.57_AM.jpeg').then(response=>{
+      console.log(response)
+    });
+    })
 
     return {
       tattos, sm, md, lg, xl

@@ -1,16 +1,8 @@
-// Import the functions you need from the SDKs you need
-import {
-    initializeApp
-} from "firebase/app";
-import {
-    getAnalytics
-} from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/firestore';
+import 'firebase/compat/storage';
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
+var config = {
     apiKey: "AIzaSyDFaLwfy7M000L_CZs8bt1teRl2pF-ch5U",
     authDomain: "victortattoowebsite.firebaseapp.com",
     projectId: "victortattoowebsite",
@@ -19,11 +11,17 @@ const firebaseConfig = {
     appId: "1:229461931182:web:1b6cd8636fa69c14f3693f",
     measurementId: "G-3LNR27Z63Z"
 };
+firebase.initializeApp(config);
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+const db = firebase.firestore();
+const storage = firebase.storage();
 
-export {
-    app
-}
+// date issue fix according to firebase
+const settings = {
+    timestampsInSnapshots: true
+};
+db.settings(settings);
+
+export default {
+    db, storage
+};
