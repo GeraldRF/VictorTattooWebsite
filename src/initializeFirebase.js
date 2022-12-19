@@ -1,4 +1,4 @@
-import firebase from 'firebase/compat/app';
+//import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import 'firebase/compat/storage';
 
@@ -11,17 +11,18 @@ var config = {
     appId: "1:229461931182:web:1b6cd8636fa69c14f3693f",
     measurementId: "G-3LNR27Z63Z"
 };
-firebase.initializeApp(config);
 
-const db = firebase.firestore();
-const storage = firebase.storage();
+//firebase.initializeApp(config);
+
+//const db = firebase.firestore();
+//const storage = firebase.storage();
 
 // date issue fix according to firebase
-const settings = {
-    timestampsInSnapshots: true
-};
-db.settings(settings);
+// const settings = {
+//     timestampsInSnapshots: true
+// };
+// db.settings(settings);
 
-export default {
-    db, storage
-};
+// export default {
+//     db, storage
+// };

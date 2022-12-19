@@ -18,12 +18,13 @@
       <div class="relative flex flex-col items-center gap-8 pb-10 mt-6 bg-transparent lg:w-10/12 mx-auto z-10">
         <div class="text-2xl w-full">Estamos ubicados en: </div>
         <div class="mapouter ">
-          <div class="gmap_canvas"><iframe class="w-full rounded-2xl overflow-hidden" :height="xl ? 500 : lg ? 400 : 300" id="gmap_canvas"
-              src="https://maps.google.com/maps?q=10.623600,%20-85.440684&t=&z=13&ie=UTF8&iwloc=&output=embed"
-              frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
-            </iframe><a href="https://123movies-to.org"></a><br>
-            <a class="hidden" href="https://www.embedgooglemap.net">embed code google maps</a>
+          <div class="gmap_canvas">
+            <iframe class="w-full rounded-2xl overflow-hidden" :height="xl ? 500 : lg ? 400 : 300" 
+              :src="appDataStore.getSetting('map_location')?.value" 
+              style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
           </div>
+          
         </div>
       </div>
 
@@ -51,7 +52,6 @@ import availableTattos from '@/components/trash/catalogue.js'
 
 import useBreakpoints from "@/composables/useBreakpoints";
 import ContactCard from '@/components/ContactCard.vue';
-import firebase from '@/initializeFirebase'
 
 import { useAppDataStore } from '@/stores/appdata.store.js'
 
@@ -71,22 +71,17 @@ export default {
 
     const appDataStore = useAppDataStore();
 
-    const getAppData = async () => {
-      const snapshot = await firebase.db.collection('app_data').get();
-      return snapshot.docs.map(doc => doc.data());
-    }
-
-
     onMounted(() => {
-     console.log(getAppData()) 
-
-     firebase.storage.getDownloadURL('WhatsApp_Image_2022-07-21_at_12.08.57_AM.jpeg').then(response=>{
-      console.log(response)
-    });
+      appDataStore.getSettings();
     })
 
     return {
-      tattos, sm, md, lg, xl
+      appDataStore,
+      tattos, 
+      sm, 
+      md, 
+      lg, 
+      xl
     }
   }
 };

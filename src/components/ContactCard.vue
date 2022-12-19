@@ -59,9 +59,9 @@
                 <input class="w-52 h-10 bg-blue-500 rounded-xl cursor-pointer" type="submit">
             </div>
         </form>
-        <div class="flex flex-col items-center justify-center gap-5 w-10/12 mx-auto md:w-3/12">
+        <div class="flex flex-col items-center justify-center gap-5 w-11/12 mx-auto md:w-3/12">
             <div class="text-center text-xl">Otras formas de contactarme</div>
-            <div class="flex flex-col sm:flex-row md:flex-col gap-4">
+            <div class="grid grid-cols-2 sm:flex sm:flex-row md:flex-col gap-4 w-full sm:w-auto">
                 <div class="flex flex-col lg:flex-row gap-3 items-center justify-center lg:justify-start cursor-pointer hover:text-blue-400"><i class="text-3xl fab fa-whatsapp-square"></i> Whatsapp</div>
                 <div class="flex flex-col lg:flex-row gap-3 items-center justify-center lg:justify-start cursor-pointer hover:text-blue-400"><i class="text-3xl fab fa-facebook-square"></i> Facebook</div>
                 <div class="flex flex-col lg:flex-row gap-3 items-center justify-center lg:justify-start cursor-pointer hover:text-blue-400"><i class="text-3xl fab fa-instagram-square"></i> Instagram</div>
