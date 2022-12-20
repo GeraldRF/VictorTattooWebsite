@@ -65,7 +65,7 @@
                 <div class="flex flex-col lg:flex-row gap-3 items-center justify-center lg:justify-start cursor-pointer hover:text-blue-400"><i class="text-3xl fab fa-whatsapp-square"></i> Whatsapp</div>
                 <div class="flex flex-col lg:flex-row gap-3 items-center justify-center lg:justify-start cursor-pointer hover:text-blue-400"><i class="text-3xl fab fa-facebook-square"></i> Facebook</div>
                 <div class="flex flex-col lg:flex-row gap-3 items-center justify-center lg:justify-start cursor-pointer hover:text-blue-400"><i class="text-3xl fab fa-instagram-square"></i> Instagram</div>
-                <div class="flex flex-col lg:flex-row gap-3 items-center justify-center lg:justify-start cursor-pointer hover:text-blue-400"><i class="text-3xl fas fa-share-alt-square"></i> Comparte este sitio</div>
+                <div @click="shareSite" class="flex flex-col lg:flex-row gap-3 items-center justify-center lg:justify-start cursor-pointer hover:text-blue-400"><i class="text-3xl fas fa-share-alt-square"></i> Comparte este sitio</div>
             </div>
         </div>
     </div>
@@ -167,7 +167,31 @@ export default {
             uploadedImg.value = false;
         }
 
-        return { onSubmit, onDropImg, uploader_img, draggable, onDragOver, onDragLeave, onUploadImg, filesInputErrorMessage, removeImg, uploadedImg }
+        const shareSite = () => {
+            if(navigator.share){
+                navigator.share({
+                    title: 'Vink',
+                    text: 'Do you want see art, enter in Vink',
+                    url: location.href
+                })
+            } else {
+                alert('Share is not available');
+            }
+        }
+
+        return { 
+            onSubmit, 
+            onDropImg, 
+            uploader_img, 
+            draggable, 
+            onDragOver, 
+            onDragLeave, 
+            onUploadImg, 
+            filesInputErrorMessage, 
+            removeImg, 
+            uploadedImg,
+            shareSite
+        }
 
     }
 }
