@@ -12,6 +12,7 @@ export const useAppDataStore = defineStore('appDataStore', () => {
 
     const getSettings = () => {
         getCall('/settings').then(response => {
+            console.log(response)
             settings.value = response.data ?? [];
         });
     }
@@ -23,7 +24,7 @@ export const useAppDataStore = defineStore('appDataStore', () => {
     }
 
     const getSetting = (slug) => {
-        return settings.value.find(setting => setting.slug === slug)
+        return settings.value?.find(setting => setting.slug === slug)
     }
 
     return {

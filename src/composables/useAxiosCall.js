@@ -4,8 +4,11 @@ import { inject } from 'vue';
 export default function useAxiosCall() {
 
     const SERVER_URL = inject('SERVER_URL');
+    const TOKEN = inject('API_KEY');
 
-    const getCall = (endpoint, data) => {
+    axios.defaults.headers.common['Authorization'] = `Bearer ${TOKEN}`;
+
+    const getCall = (endpoint) => {
         return new Promise((resolve, reject) => {
             axios.get(SERVER_URL+endpoint).then(response => {
                     if(response.status === 200){
