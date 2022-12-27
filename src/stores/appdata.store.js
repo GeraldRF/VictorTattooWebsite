@@ -4,7 +4,7 @@ import { ref } from "vue";
 
 export const useAppDataStore = defineStore('appDataStore', () => {
 
-    const { getCall } = useAxiosCall();
+    const { getCall, postCall } = useAxiosCall();
     
     const tattos = ref([{name: 'wander'}]);
 
@@ -14,6 +14,12 @@ export const useAppDataStore = defineStore('appDataStore', () => {
         getCall('/settings').then(response => {
             console.log(response)
             settings.value = response.data ?? [];
+        });
+    }
+
+    const updateSetting = (slug, value) => {
+        postCall('/settings/update', { slug, value }).then(response => {
+            console.log(response)
         });
     }
 
@@ -31,6 +37,7 @@ export const useAppDataStore = defineStore('appDataStore', () => {
         tattos,
         getSettings,
         getSetting,
+        updateSetting,
         getCategories
     }
 

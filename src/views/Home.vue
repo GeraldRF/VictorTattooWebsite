@@ -13,7 +13,6 @@
       <SectionCard icon="fas fa-pencil-alt" name="Trabajos" :data="tattos" link="/works"></SectionCard>
 
     </div>
-
     <div class="relative w-full py-8 px-2 bg-gray-600 bg-no-repeat bg-center bg-cover" :style="{backgroundImage: `url(/images/b-bg.jpg)`}">
       <div class="relative flex flex-col items-center gap-8 pb-10 mt-6 bg-transparent lg:w-10/12 mx-auto z-10">
         <div class="text-2xl w-full">Estamos ubicados en: </div>
@@ -73,6 +72,7 @@ export default {
 
     onMounted(() => {
       appDataStore.getSettings();
+      //appDataStore.updateSetting('head_text', 'El arte es vida');
     })
 
     return {
