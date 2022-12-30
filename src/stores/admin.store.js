@@ -11,6 +11,7 @@ export const useAdminStore = defineStore('adminStore', () => {
     const login = (email, password) => {
         postCall('/login', { email, password }).then(response => {
             token.value = response.data?.token;
+            console.log(response);
         }).catch(error => {
             console.log(error);
         });
