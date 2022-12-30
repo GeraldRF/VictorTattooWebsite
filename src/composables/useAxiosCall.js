@@ -3,14 +3,23 @@ import { inject } from 'vue';
 
 export default function useAxiosCall() {
 
-    const SERVER_URL = inject('SERVER_URL');
-    const TOKEN = inject('API_KEY');
+    axios.defaults.baseURL = import.meta.env.VITE_SERVER_URL;
 
     //axios.defaults.headers.common['Authorization'] = `Bearer ${TOKEN}`;
 
-    const getCall = (endpoint) => {
+    const getCall = (endpoint, token = null) => {
+
+        let headers = null;
+        
+        if(token){
+            headers = {
+                "Content-type": "application/json",
+                "Authorization": 'Bearer ' + token
+            }
+        }
+
         return new Promise((resolve, reject) => {
-            axios.get(SERVER_URL+'/api'+endpoint).then(response => {
+            axios.get(endpoint, { headers }).then(response => {
                     if(response.status === 200){
                         resolve(response);
                     } else {
@@ -23,9 +32,19 @@ export default function useAxiosCall() {
         });
     }
 
-    const postCall = (endpoint, data) => {
+    const postCall = (endpoint, data, token = null) => {
+
+        let headers = null;
+        
+        if(token){
+            headers = {
+                "Content-type": "application/json",
+                "Authorization": 'Bearer ' + token
+            }
+        }
+
         return new Promise((resolve, reject) => {
-            axios.post(SERVER_URL+'/api'+endpoint, data).then(response => {
+            axios.post(endpoint, data, { headers }).then(response => {
                     if(response.status === 200){
                         resolve(response);
                     } else {

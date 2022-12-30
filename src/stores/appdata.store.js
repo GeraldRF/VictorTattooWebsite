@@ -2,29 +2,24 @@ import { defineStore } from "pinia"
 import useAxiosCall from "@/composables/useAxiosCall";
 import { ref } from "vue";
 
+const { getCall, postCall } = useAxiosCall();
+
 export const useAppDataStore = defineStore('appDataStore', () => {
 
-    const { getCall, postCall } = useAxiosCall();
     
     const tattos = ref([{name: 'wander'}]);
 
     const settings = ref([]);
 
     const getSettings = () => {
-        getCall('/settings').then(response => {
+        getCall('/api/settings').then(response => {
             console.log(response)
             settings.value = response.data ?? [];
         });
     }
 
-    const updateSetting = (slug, value) => {
-        postCall('/settings/update', { slug, value }).then(response => {
-            console.log(response)
-        });
-    }
-
     const getCategories = () => {
-        getCall('/categories').then(response => {
+        getCall('/api/categories').then(response => {
             console.log(response)
         });
     }
@@ -37,7 +32,6 @@ export const useAppDataStore = defineStore('appDataStore', () => {
         tattos,
         getSettings,
         getSetting,
-        updateSetting,
         getCategories
     }
 

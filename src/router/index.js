@@ -7,6 +7,7 @@ import Promotions from '@/views/Promotions.vue'
 import Works from '@/views/Works.vue'
 import Contact from '@/views/Contact.vue'
 import About from '@/views/About.vue'
+import Login from '@/views/admin/Login.vue'
 
 //init routes
 const routes = [
@@ -39,6 +40,11 @@ const routes = [
     path: "/about",
     name: "About",
     component: About,
+  },
+  {
+    path: "/login",
+    name: "Login",
+    component: Login,
   },
 ];
 

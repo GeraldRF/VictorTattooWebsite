@@ -22,5 +22,4 @@ app.use(pinia)
 app.use(router)
 app.use(VueAxios, axios)
 app.provide('SERVER_URL', import.meta.env.VITE_SERVER_URL);
-app.provide('API_KEY', import.meta.env.VITE_BEEARER_TOKEN);
 app.mount('#app')
