@@ -1,5 +1,5 @@
 <template>
-  <div class="text-white">
+  <div>
 
     <img alt="">
 
@@ -69,11 +69,6 @@ export default {
     const { sm, md, lg, xl } = useBreakpoints();
 
     const appDataStore = useAppDataStore();
-
-    onMounted(() => {
-      appDataStore.getSettings();
-      //appDataStore.updateSetting('head_text', 'El arte es vida');
-    })
 
     return {
       appDataStore,

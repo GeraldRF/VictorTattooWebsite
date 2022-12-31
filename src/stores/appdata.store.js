@@ -10,17 +10,18 @@ export const useAppDataStore = defineStore('appDataStore', () => {
     const tattos = ref([{name: 'wander'}]);
 
     const settings = ref([]);
+    const menu = ref([]);
 
     const getSettings = () => {
         getCall('/api/settings').then(response => {
-            console.log(response)
             settings.value = response.data ?? [];
         });
     }
 
-    const getCategories = () => {
-        getCall('/api/categories').then(response => {
-            console.log(response)
+    const getInitialMenu = () => {
+        getCall('/api/get-menu').then(response => {
+            menu.value = response.data ?? [];
+            console.log(menu.value)
         });
     }
 
@@ -30,9 +31,10 @@ export const useAppDataStore = defineStore('appDataStore', () => {
 
     return {
         tattos,
+        menu,
         getSettings,
         getSetting,
-        getCategories
+        getInitialMenu
     }
 
 

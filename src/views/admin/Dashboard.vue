@@ -1,5 +1,8 @@
 <template>
-  <div>Dashboard</div>
+  <div class="flex justify-center shrink grow text-white">
+    
+
+  </div>
 </template>
 
 <script>

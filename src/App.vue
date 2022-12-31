@@ -1,8 +1,5 @@
 <template>
-  <div class="bg-black min-h-screen">
-    <Navbar></Navbar>
-    <router-view :key="$route.fullPath"></router-view>
-  </div>
+  <router-view :key="$route.fullPath"></router-view>
 </template>
 
 <script>

@@ -7,24 +7,21 @@ const { getCall, postCall } = useAxiosCall();
 export const useAdminStore = defineStore('adminStore', () => {
 
     const token = ref(null);
+    const user = ref(null);
+
+    const loading = ref(false);
 
     const login = (email, password) => {
-        postCall('/login', { email, password }).then(response => {
-            token.value = response.data?.token;
-            console.log(response);
-        }).catch(error => {
-            console.log(error);
-        });
+        return postCall('/login', { email, password });
     }
 
     const updateSetting = (slug, value) => {
-        postCall('/api/settings/update', { slug, value }, token.value).then(response => {
-            console.log(response)
-        });
+        return postCall('/api/settings/update', { slug, value }, token.value);  
     }
 
 
     return {
+        loading,
         login,
         updateSetting,
     }
