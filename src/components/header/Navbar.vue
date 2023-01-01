@@ -18,7 +18,7 @@
           </button>
         </li>
         
-        <template v-for="(category, categoryIdx) in appdataStore.menu" :key="categoryIdx+'_category'">
+        <template v-for="(category, categoryIdx) in appdataStore.categories" :key="categoryIdx+'_category'">
           <template v-if="category.has_subcategory">
             <div :id="'dropdown_'+category.slug" class="inline-block relative" @mouseover="toggleSubmenu(category.slug, true)" @mouseleave="toggleSubmenu(category.slug, false)">
               <router-link :to="{name: 'display-category', params: {category: category.slug}}" class="pb-1 border-b-2 border-transparent">
@@ -41,8 +41,8 @@
         </template>
     
         <li>
-          <router-link to="/contact" class="pb-1 border-b-2 border-transparent hover:border-white">Contacto
-          </router-link>
+          <a :href="$route.name === 'Home' ? '#contact' : '/#contact'" class="pb-1 border-b-2 border-transparent hover:border-white">Contacto
+          </a>
         </li>
         <li>
           <router-link to="/about" class="pb-1 border-b-2 border-transparent hover:border-white">Acerca de</router-link>

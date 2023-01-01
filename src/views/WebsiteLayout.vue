@@ -7,20 +7,13 @@
   
 <script>
     import Navbar from '@/components/header/Navbar.vue';
-    import { useAppDataStore } from '@/stores/appdata.store';
-    import { onMounted } from 'vue';
     
     export default {
         components: {
             Navbar
         },
         setup(){
-            const appDataStore = useAppDataStore();
-
-            onMounted(() => {
-                appDataStore.getSettings();
-                appDataStore.getInitialMenu();
-            })
+            
         }
     };
 </script>

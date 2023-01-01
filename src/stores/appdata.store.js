@@ -6,11 +6,8 @@ const { getCall, postCall } = useAxiosCall();
 
 export const useAppDataStore = defineStore('appDataStore', () => {
 
-    
-    const tattos = ref([{name: 'wander'}]);
-
     const settings = ref([]);
-    const menu = ref([]);
+    const categories = ref([]);
 
     const getSettings = () => {
         getCall('/api/settings').then(response => {
@@ -18,11 +15,8 @@ export const useAppDataStore = defineStore('appDataStore', () => {
         });
     }
 
-    const getInitialMenu = () => {
-        getCall('/api/get-menu').then(response => {
-            menu.value = response.data ?? [];
-            console.log(menu.value)
-        });
+    const getMainStatus = () => {
+        return getCall('/api/main-status');
     }
 
     const getSetting = (slug) => {
@@ -30,11 +24,11 @@ export const useAppDataStore = defineStore('appDataStore', () => {
     }
 
     return {
-        tattos,
-        menu,
+        categories,
+        settings,
         getSettings,
         getSetting,
-        getInitialMenu
+        getMainStatus
     }
 
 

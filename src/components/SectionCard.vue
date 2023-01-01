@@ -12,7 +12,7 @@
            </template>
         </div>
         <div class="flex justify-end mb-16">
-            <router-link :to="link" class="mr-3 px-3 py-1 text-blue-400 hover:text-white">Ver {{name.toLowerCase()}}</router-link>
+            <router-link :to="{name: 'display-category', params: {category: link}}" class="mr-3 px-3 py-1 text-blue-400 hover:text-white">Ver {{name.toLowerCase()}}</router-link>
         </div>
     </div>
 </template>

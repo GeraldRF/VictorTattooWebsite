@@ -6,11 +6,10 @@
     <Header></Header>
     <div class="flex flex-col gap-4 mt-20">
 
-      <SectionCard icon="fas fa-book-open" name="Catalogo" :data="tattos" link="/catalogue"></SectionCard>
-
-      <SectionCard icon="fas fa-gifts" name="Promociones" :data="tattos" link="/promotions"></SectionCard>
-
-      <SectionCard icon="fas fa-pencil-alt" name="Trabajos" :data="tattos" link="/works"></SectionCard>
+      <template v-for="(category, categoryIdx) in appdataStore.categories" :key="'category_'+categoryIdx">
+        <SectionCard :icon="category.icon ?? ''" :name="category.name" :data="category.products" :link="category.slug"></SectionCard>
+      </template>
+      
 
     </div>
     <div class="relative w-full py-8 px-2 bg-gray-600 bg-no-repeat bg-center bg-cover" :style="{backgroundImage: `url(/images/b-bg.jpg)`}">
@@ -19,7 +18,7 @@
         <div class="mapouter ">
           <div class="gmap_canvas">
             <iframe class="w-full rounded-2xl overflow-hidden" :height="xl ? 500 : lg ? 400 : 300" 
-              :src="appDataStore.getSetting('map_location')?.value" 
+              :src="appdataStore.getSetting('map_location')?.value" 
               style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
             </iframe>
           </div>
@@ -27,7 +26,7 @@
         </div>
       </div>
 
-      <div class="relative flex flex-col items-center gap-8 pb-32 mt-6 bg-transparent lg:w-10/12 mx-auto z-10">
+      <div id="contact" class="relative flex flex-col items-center gap-8 pb-32 mt-6 bg-transparent lg:w-10/12 mx-auto z-10">
         <div class="text-2xl w-full">Contactame: </div>
         <ContactCard></ContactCard>
       </div>
@@ -68,10 +67,10 @@ export default {
 
     const { sm, md, lg, xl } = useBreakpoints();
 
-    const appDataStore = useAppDataStore();
+    const appdataStore = useAppDataStore();
 
     return {
-      appDataStore,
+      appdataStore,
       tattos, 
       sm, 
       md, 
