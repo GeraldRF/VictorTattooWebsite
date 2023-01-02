@@ -58,6 +58,8 @@ export default {
                 adminStore.token = response.data?.token;
                 adminStore.user = response.data?.user;
 
+                localStorage.setItem('login_token', response.data?.token);
+
                 router.push({name: 'admin-dashboard'});
             }).catch(error => {
                 if(error.response.status === 400){
