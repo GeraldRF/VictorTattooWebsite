@@ -20,6 +20,7 @@
     "pinia": "^2.0.23",
     "vue": "^3.2.37",
     "vue-axios": "^3.5.2",
+    "vue-hotjar": "^1.4.0",
     "vue-router": "^4.0.15",
     "vue3-carousel": "^0.1.46"
   },
