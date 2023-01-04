@@ -1,5 +1,6 @@
 <template>
     <div class="flex flex-col gap-4 items-center justify-center h-full w-10/12 lg:w-3/12 mx-auto min-h-screen">
+        <router-link to="/">Go home</router-link>
         <template v-if="adminStore.loading">
             <div class="flex flex-col items-center w-28 h-28">
                 <img src="../../assets/loading.gif">

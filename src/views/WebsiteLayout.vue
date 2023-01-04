@@ -7,13 +7,29 @@
   
 <script>
     import Navbar from '@/components/header/Navbar.vue';
+import { onMounted } from '@vue/runtime-core';
     
     export default {
         components: {
             Navbar
         },
         setup(){
-            
+            let hotjar = document.createElement('script');
+            hotjar.innerHTML(`(function(h,o,t,j,a,r){
+                h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+                h._hjSettings={hjid:3309748,hjsv:6};
+                a=o.getElementsByTagName('head')[0];
+                r=o.createElement('script');r.async=1;
+                r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+                a.appendChild(r);
+                })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+            `);
+            document.head.appendChild(hotjar);
+
+        console.log(hotjar);
+            onMounted(() => {
+                console.log(document.head);
+            })
         }
     };
 </script>

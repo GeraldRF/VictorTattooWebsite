@@ -36,6 +36,10 @@ import { useRouter } from 'vue-router';
                         router.push({name: 'Login'});
                     }       
                 }
+
+                document.head.children[4].innerHTML = 'AdminPane | VINK'
+                console.log( document.head);
+            
             });
         }
     };
