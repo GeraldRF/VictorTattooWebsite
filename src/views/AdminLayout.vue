@@ -36,9 +36,6 @@ import { useRouter } from 'vue-router';
                         router.push({name: 'Login'});
                     }       
                 }
-
-                //document.head.removeChild();
-                console.log( document.head.children );
             
             });
         }
