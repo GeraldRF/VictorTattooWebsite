@@ -1,6 +1,7 @@
 <template>
     <div class="flex flex-col bg-black text-white min-h-screen">
       <Navbar class="shrink-0 grow-0"></Navbar>
+      <button @click="removeHotjat">Remove</button>
       <router-view :key="$route.fullPath"></router-view>
     </div>
 </template>
@@ -28,7 +29,13 @@ import { onMounted } from '@vue/runtime-core';
 
             console.log(document.head);
 
-            document.head.removeChild(hotjar);
+            const removeHotjat = () => {
+                document.head.removeChild(hotjar);
+
+                console.log(document.head); 
+            }
+            
+            return removeHotjat
             
         }
     };
