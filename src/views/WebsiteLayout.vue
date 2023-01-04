@@ -15,6 +15,7 @@ import { onMounted } from '@vue/runtime-core';
             Navbar
         },
         setup(){
+            
             let hotjar = document.createElement('script');
             hotjar.innerHTML = `(function(h,o,t,j,a,r){
                 h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
@@ -26,16 +27,6 @@ import { onMounted } from '@vue/runtime-core';
                 })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
             `;
             document.head.appendChild(hotjar);
-
-            console.log(document.head);
-
-            const removeHotjat = () => {
-                document.head.removeChild(hotjar);
-
-                console.log(document.head); 
-            }
-            
-            return removeHotjat
             
         }
     };
