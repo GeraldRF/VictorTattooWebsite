@@ -1,7 +1,6 @@
 <template>
     <div class="flex flex-col bg-black text-white min-h-screen">
       <Navbar class="shrink-0 grow-0"></Navbar>
-      <button @click="removeHotjat">Remove</button>
       <router-view :key="$route.fullPath"></router-view>
     </div>
 </template>
