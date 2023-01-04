@@ -24,7 +24,7 @@ app.use(router)
 app.use(VueAxios, axios)
 app.use (Hotjar, {
     id: import.meta.env.VITE_HOTJAR_ID,
-    isProduction: import.meta.env.VITE_PRODUCTION
+    isProduction: true
 })
 app.provide('SERVER_URL', import.meta.env.VITE_SERVER_URL);
 app.mount('#app')
