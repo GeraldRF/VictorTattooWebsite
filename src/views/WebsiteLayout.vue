@@ -26,10 +26,10 @@ import { onMounted } from '@vue/runtime-core';
             `;
             document.head.appendChild(hotjar);
 
-        console.log(hotjar);
-            onMounted(() => {
-                console.log(document.head);
-            })
+            console.log(document.head);
+
+            document.head.removeChild(hotjar);
+            
         }
     };
 </script>

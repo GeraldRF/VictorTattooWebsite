@@ -37,8 +37,8 @@ import { useRouter } from 'vue-router';
                     }       
                 }
 
-                document.head.children[4].innerHTML = 'AdminPane | VINK'
-                console.log( document.head);
+                //document.head.removeChild();
+                console.log( document.head.children );
             
             });
         }
