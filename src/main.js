@@ -22,7 +22,7 @@ const app = createApp(App)
 app.use(pinia)
 app.use(router)
 app.use(VueAxios, axios)
-Vue.use (Hotjar, {
+app.use (Hotjar, {
     id: import.meta.env.VITE_HOTJAR_ID,
     isProduction: import.meta.env.VITE_PRODUCTION
 })
