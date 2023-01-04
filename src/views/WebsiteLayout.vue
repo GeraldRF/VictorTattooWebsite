@@ -15,7 +15,7 @@ import { onMounted } from '@vue/runtime-core';
         },
         setup(){
             let hotjar = document.createElement('script');
-            hotjar.innerHTML(`(function(h,o,t,j,a,r){
+            hotjar.innerHTML = `(function(h,o,t,j,a,r){
                 h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
                 h._hjSettings={hjid:3309748,hjsv:6};
                 a=o.getElementsByTagName('head')[0];
@@ -23,7 +23,7 @@ import { onMounted } from '@vue/runtime-core';
                 r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
                 a.appendChild(r);
                 })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-            `);
+            `;
             document.head.appendChild(hotjar);
 
         console.log(hotjar);
