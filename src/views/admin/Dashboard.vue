@@ -9,8 +9,15 @@
 </template>
 
 <script>
+import { onMounted } from 'vue';
+
 export default {
   name: "Dashboard",
+  setup() {
+    onMounted(() => {
+      console.log(document.head.children, document.head);
+    });
+  }
 };
 </script>
 
