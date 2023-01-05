@@ -8,6 +8,8 @@ export const useAdminStore = defineStore('adminStore', () => {
 
     const token = ref(null);
     const user = ref(null);
+    const hotjar = ref(null);
+
 
     const loading = ref(false);
 
@@ -33,6 +35,7 @@ export const useAdminStore = defineStore('adminStore', () => {
         login,
         logout,
         updateSetting,
-        getLoginUser
+        getLoginUser,
+        hotjar
     }
 });

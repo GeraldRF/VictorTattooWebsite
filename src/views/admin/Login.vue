@@ -61,6 +61,10 @@ export default {
 
                 localStorage.setItem('login_token', response.data?.token);
 
+                if(adminStore.hotjar){
+                    document.head.removeChild(adminStore.hotjar);
+                }
+
                 router.push({name: 'admin-dashboard'});
             }).catch(error => {
                 if(error.response.status === 400){

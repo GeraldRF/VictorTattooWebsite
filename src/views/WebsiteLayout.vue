@@ -7,16 +7,19 @@
   
 <script>
     import Navbar from '@/components/header/Navbar.vue';
-import { onMounted } from '@vue/runtime-core';
+    import { onMounted } from '@vue/runtime-core';
+    import { useAdminStore } from '@/stores/appdata.store.js';
     
     export default {
         components: {
             Navbar
         },
         setup(){
+
+            const adminStore = useAdminStore();
             
-            let hotjar = document.createElement('script');
-            hotjar.innerHTML = `(function(h,o,t,j,a,r){
+            adminStore.hotjar = document.createElement('script');
+            adminStore.hotjar.innerHTML = `(function(h,o,t,j,a,r){
                 h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
                 h._hjSettings={hjid:3309748,hjsv:6};
                 a=o.getElementsByTagName('head')[0];
@@ -25,7 +28,7 @@ import { onMounted } from '@vue/runtime-core';
                 a.appendChild(r);
                 })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
             `;
-            document.head.appendChild(hotjar);
+            document.head.appendChild(adminStore.hotjar);
             
         }
     };

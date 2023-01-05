@@ -6,6 +6,7 @@ const { getCall, postCall } = useAxiosCall();
 
 export const useAppDataStore = defineStore('appDataStore', () => {
 
+
     const settings = ref([]);
     const categories = ref([]);
 
@@ -28,7 +29,8 @@ export const useAppDataStore = defineStore('appDataStore', () => {
         settings,
         getSettings,
         getSetting,
-        getMainStatus
+        getMainStatus,
+        
     }
 
 
