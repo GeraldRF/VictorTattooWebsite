@@ -47,6 +47,9 @@
         <li>
           <router-link to="/about" class="pb-1 border-b-2 border-transparent hover:border-white">Acerca de</router-link>
         </li>
+        <li>
+          <router-link to="/login" class="pb-1 border-b-2 border-transparent hover:border-white">Login</router-link>
+        </li>
       </ul>
 
       <div class="flex md:mr-3">
