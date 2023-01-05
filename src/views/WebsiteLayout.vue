@@ -20,6 +20,7 @@
             
             if(!adminStore.hotjar){
                 adminStore.hotjar = document.createElement('script');
+                adminStore.hotjar.id = 'hotjarFunctionScript';
                 adminStore.hotjar.innerHTML = `(function(h,o,t,j,a,r){
                     h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
                     h._hjSettings={hjid:3309748,hjsv:6};

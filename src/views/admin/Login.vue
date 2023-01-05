@@ -62,7 +62,7 @@ export default {
                 localStorage.setItem('login_token', response.data?.token);
 
                 if(adminStore.hotjar){
-                    document.head.removeChild(adminStore.hotjar);
+                    document.head.removeChild(document.querySelector('#hotjarFunctionScript'));
                     adminStore.hotjar = null;
 
                     let script1 = Array.from(document.head.children).find(child => child.attributes.src?.nodeValue === 'https://script.hotjar.com/modules.352fddba5b21bbfc3a08.js');
