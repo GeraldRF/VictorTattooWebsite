@@ -8,7 +8,7 @@
 <script>
     import Navbar from '@/components/header/Navbar.vue';
     import { onMounted } from '@vue/runtime-core';
-    import { useAdminStore } from '@/stores/appdata.store.js';
+    import { useAdminStore } from '@/stores/admin.store.js';
     
     export default {
         components: {
